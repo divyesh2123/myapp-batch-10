@@ -17,7 +17,7 @@ export default function Registration() {
 
         if(e.target.type == "checkbox")
         {
-            alert(e.target.name);
+         
 
             setForm({...form,[e.target.name] : e.target.checked});
         }
