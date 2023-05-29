@@ -16,13 +16,13 @@ import DisplayDataFromAPI from './components/DisplayDataFromAPI';
 import SimpleForm from './components/SimpleForm';
 import Employee from './views/Employee';
 import Student from './views/Student';
+import DisplayPosts from './views/DisplayPosts';
+import Registration from './views/Registration';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    
-
-    <BrowserRouter>
+     {/* <BrowserRouter>
 
     <Routes>
 
@@ -37,6 +37,10 @@ root.render(
     
 
     </BrowserRouter>
+
+    */}
+
+    <Registration/>
    
   </React.StrictMode>
 );
