@@ -15,7 +15,27 @@ export default function Student() {
     setOpen(false);
   };
 
+  const handleDelete = (id)=> {
+
+    let my = [...data].filter(y=> {
+      return y.id != id;
+    })
+
+    setData(my);
+
+  }
+
+  const editValues = (id) => {
+
+    setEdit(id);
+    setOpen(true);
+  }
+
   const [data,setData] = useState([]);
+
+  const [edit,setEdit] = useState(-1);
+
+
 
   return (
     <>
@@ -26,10 +46,14 @@ export default function Student() {
         <StudentForm  handleClose={handleClose}
           open={open}  data={data}
            setData={setData}
+
+           editID = {edit}
+
+           setEdit={setEdit}
            
            />
 
-        <StudentDisplay mydata={data}/>
+        <StudentDisplay mydata={data} myd = {handleDelete} t={editValues}/>
     
     
     </>

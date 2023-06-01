@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -18,6 +18,28 @@ export default function StudentForm(props) {
       state : ""
     }
   })
+
+  useEffect(()=> {
+
+    if(props.editID >0)
+    {
+    setform(props.data[props.editID-1])
+
+    }
+    else
+    {
+      setform({
+        firstName : "",
+        lastName  : "",
+        address :  {
+    
+          city : "",
+          state : ""
+        }
+      })
+    }
+
+  },[props.editID])
 
   const changeHandelr = (e)=> {
 
@@ -42,12 +64,24 @@ export default function StudentForm(props) {
 
   const handleSave = ()=> {
 
+    let t = [...props.data];
+    if(props.editID >0)
+    {
+      t[props.editID-1] = form
+    }
+    else
+    {
+      
+      t.push({...form, id: t.length + 1});
+  
+     
+    }
+    props.setEdit(-1);
+    props.setData(t);
+
     console.log(form);
 
-    let t = [...props.data];
-    t.push({...form, id: t.length + 1});
-
-    props.setData(t);
+   
     props.handleClose();
 
   }
@@ -69,6 +103,8 @@ export default function StudentForm(props) {
         fullWidth
         variant="standard"
 
+        value={form?.firstName}
+
         onChange={changeHandelr}
       />
        <TextField
@@ -80,6 +116,8 @@ export default function StudentForm(props) {
         type="text"
         fullWidth
         variant="standard"
+        value={form?.lastName}
+
         onChange={changeHandelr}
       />
 
@@ -92,6 +130,7 @@ export default function StudentForm(props) {
         type="email"
         fullWidth
         variant="standard"
+        value={form?.address?.city}
         onChange={changeHandelr}
       />
 
@@ -104,6 +143,7 @@ export default function StudentForm(props) {
         type="text"
         fullWidth
         variant="standard"
+        value={form?.address?.state}
         onChange={changeHandelr}
       />
     </DialogContent>

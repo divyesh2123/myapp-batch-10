@@ -53,7 +53,11 @@ export default function StudentDisplay(props) {
 
         console.log(params);
          // you will find row info in params
-        return (<button onClick={()=>{  }}>Delete</button>)
+        return (<button onClick={()=>{
+
+          props.myd(params.row.id);
+
+          }}>Delete</button>)
       }
     },
 
@@ -65,7 +69,10 @@ export default function StudentDisplay(props) {
 
         console.log(params);
          // you will find row info in params
-        return (<button onClick={()=>{  }}>Edit</button>)
+        return (<button onClick={()=>{
+          props.t(params.row.id);
+
+          }}>Edit</button>)
       }
     }
     
