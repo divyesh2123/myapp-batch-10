@@ -21,13 +21,33 @@ export default function StudentForm(props) {
 
   const changeHandelr = (e)=> {
 
+    if(e.target.name.includes('.'))
+    {
+      let d = {...form,[e.target.name.split(".")[0]]: { 
+        ...form[e.target.name.split(".")[0]],
+         [e.target.name.split(".")[1]] : e.target.value}};
 
-    setform({...form,[e.target.name]: e.target.value});
+      setform(d);
+    }
+    else
+    {
+      let d = {...form,[e.target.name] : e.target.value};
+
+      setform(d);
+
+    }
+
+  
   }
 
   const handleSave = ()=> {
 
     console.log(form);
+
+    let t = [...props.data];
+    t.push({...form, id: t.length + 1});
+
+    props.setData(t);
     props.handleClose();
 
   }
@@ -67,7 +87,7 @@ export default function StudentForm(props) {
         autoFocus
         margin="dense"
         id="address.city"
-        name ="address[city]"
+        name ="address.city"
         label="City"
         type="email"
         fullWidth

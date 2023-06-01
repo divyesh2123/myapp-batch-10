@@ -1,4 +1,5 @@
 import { Box, Button, Checkbox, TextField } from '@mui/material'
+import axios from 'axios';
 import React, { useState } from 'react'
 
 export default function Registration() {
@@ -10,7 +11,8 @@ export default function Registration() {
         userName: "",
         password : "",
         confirmPassword : "",
-        acceptTerms : false
+        acceptTerms : false,
+        title :""
     })
 
     const handleChange=  (e)=> {
@@ -31,6 +33,15 @@ export default function Registration() {
     const handleSubmit = ()=>{ 
 
         console.log(form);
+
+      
+
+        axios.post("https://real-pear-fly-kilt.cyclic.app/accounts/register",form).then(y=> {
+
+          console.log(y);
+        }).catch(y=> {
+          console.log(y);
+        })
     }
   return (
     <Box
@@ -41,6 +52,20 @@ export default function Registration() {
       noValidate
       autoComplete="off"
     >
+
+<div>
+        <TextField
+          required
+          id="outlined-required"
+          label="Title"
+         
+          name="title"
+          variant='standard'
+
+          onChange={handleChange}
+        />
+
+        </div>
       <div>
         <TextField
           required
