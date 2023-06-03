@@ -23,7 +23,11 @@ export default function StudentForm(props) {
 
     if(props.editID >0)
     {
-    setform(props.data[props.editID-1])
+      let t = props.data.filter((value)=> {
+
+        return value.id == props.editID;
+      })
+    setform(t)
 
     }
     else
@@ -67,7 +71,19 @@ export default function StudentForm(props) {
     let t = [...props.data];
     if(props.editID >0)
     {
-      t[props.editID-1] = form
+      t=  t.map((value)=> {
+
+        if(value.id == props.editID)
+        {
+          return form
+        }
+        else
+        {
+          return value;
+        }
+
+      })
+    
     }
     else
     {
