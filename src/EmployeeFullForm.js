@@ -5,18 +5,18 @@ export default function EmployeeFullForm() {
 
     const[state,setState] =useState({
         form: {
-            name: "divyesh",
+            name: "",
             email: "",
             mobile: "",
             password: "",
             confirmPassword: "",
             gender: null,
-            language: ["english"],
-            country: "Canada",
+            language: [],
+            country: "",
             zipCode: ""
           },
           formErrors: {
-            name: "FirstName is required",
+            name: "",
             email: null,
             mobile: null,
             password: null,
@@ -129,13 +129,55 @@ export default function EmployeeFullForm() {
         }
         return errorMsg;
       };
+
+      var  validateForm = (form, formErrors) => {
+        const errorObj = {};
+        Object.keys(formErrors).map(x => {
+          let refValue = null;
+          if (x === "password" || x === "confirmPassword") {
+            refValue = form[x === "password" ? "confirmPassword" : "password"];
+          }
+          const msg = validateField(x, form[x], refValue);
+          if (msg) errorObj[x] = msg;
+        });
+        return errorObj;
+      };
     
 
       const handleSubmit = ()=> {
 
+        const { form, formErrors } = state;
+        const errorObj = validateForm(form, formErrors);
+        if (Object.keys(errorObj).length !== 0) {
+          setState({...state, formErrors: { ...formErrors, ...errorObj } });
+          return false;
+        }
+        console.log("Data: ", form);
+
+
       }
 
-      const validateNumber = ()=>{
+      const validateNumber = (evt)=>{
+
+        var theEvent = evt || window.event;
+    
+        // Handle paste
+      
+          // Handle key press
+          var key = theEvent.keyCode || theEvent.which;
+        //  alert(key);
+    
+          key = String.fromCharCode(key);
+    
+          
+        
+
+        if(key)
+        var regex = /[0-9]|\./;
+        if (!regex.test(key)) {
+          theEvent.returnValue = false;
+          if (theEvent.preventDefault) theEvent.preventDefault();
+        }
 
       }
 
