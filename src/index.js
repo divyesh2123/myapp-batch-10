@@ -21,9 +21,9 @@ root.render(
   <React.StrictMode>
 <Provider store={store}>
 
-  <ShowMoreTextToggle text="THis is the javascript This is the javascript this is the javascript this is the javascript this is the javascript"/>
+  
 
-  <Counter/>
+  <Test/>
 
 </Provider>
 

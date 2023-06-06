@@ -26,7 +26,9 @@ export default function Test() {
 
    const mycallback = React.useCallback(()=> {
 
-   },[data])
+    deleteData();
+
+   },[])
 
    
   return (
