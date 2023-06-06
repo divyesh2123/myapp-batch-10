@@ -56,9 +56,80 @@ export default function EmployeeFullForm() {
           };
         }
 
-        console.log(formObj);
+        if (Object.keys(formErrors).includes(name) == false) return;
+
+
+     
+
+        let formErrorsObj = {};
+        if (name === "password" || name === "confirmPassword") {
+          let refValue = formObj[
+            name === "password" ? "confirmPassword" : "password"
+          ];
+          const errorMsg = validateField(name, value, refValue);
+          formErrorsObj = { ...formErrors, [name]: errorMsg };
+          // if (!errorMsg && refValue) {
+          //   formErrorsObj.confirmPassword = null;
+          //   formErrorsObj.password = null;
+          // }
+        } else {
+          const errorMsg = validateField(
+            name,
+            formObj[name]
+          );
+          formErrorsObj = { ...formErrors, [name]: errorMsg };
+        }
+        setState({...state ,formErrors: formErrorsObj,form: formObj });
+
+
 
       }
+
+      var  validateField = (name, value, refValue) => {
+        let errorMsg = null;
+        switch (name) {
+          case "name":
+            if (!value) errorMsg = "Please enter Name.";
+            break;
+          case "email":
+            if (!value) errorMsg = "Please enter Email.";
+            else if (
+              !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+                value
+              )
+            )
+              errorMsg = "Please enter valid Email.";
+            break;
+          case "mobile":
+            if (!value) errorMsg = "Please enter Mobile.";
+            break;
+          case "country":
+            if (!value) errorMsg = "Please select Country.";
+            break;
+          case "gender":
+            if (!value) errorMsg = "Please select Gender.";
+            break;
+          case "password":
+            // refValue is the value of Confirm Password field
+            if (!value) errorMsg = "Please enter Password.";
+            else if (refValue && value !== refValue)
+              errorMsg = "Password and Confirm Password does not match.";
+            break;
+          case "confirmPassword":
+            // refValue is the value of Password field
+            if (!value) errorMsg = "Please enter Confirm Password.";
+            else if (refValue && value !== refValue)
+              errorMsg = "Password and Confirm Password does not match.";
+            break;
+          case "language":
+            if (value.length === 0) errorMsg = "Please select Language.";
+            break;
+          default:
+            break;
+        }
+        return errorMsg;
+      };
+    
 
       const handleSubmit = ()=> {
 
