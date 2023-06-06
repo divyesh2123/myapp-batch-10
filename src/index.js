@@ -6,24 +6,26 @@ import reportWebVitals from './reportWebVitals';
 
 
 import UserLogin from './views/UserLogin';
-
+import { Provider } from "react-redux";
 import Users from './views/Users';
 import ShowMoreTextToggle from './views/ShowMoreTextToggle';
 import Test from './Test';
 import Emp1 from './Emp1';
 import LanguageContext from './Context/LanguageContext';
 import EmployeeFullForm from './EmployeeFullForm';
+import store from './store/store';
+import Counter from './Counter';
 // import  './axiosbase/global'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+<Provider store={store}>
 
-    {/* <App/> 
-    
-    */}
+  <Counter/>
 
-    <EmployeeFullForm/>
+</Provider>
 
+   
 {/* <Emp1/> */}
    
   </React.StrictMode>
