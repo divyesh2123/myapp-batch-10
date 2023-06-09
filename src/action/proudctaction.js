@@ -1,4 +1,4 @@
-export const getProduct = (payload) => ({
+export const getProduct = (a) => ({
   type: 'GET_PRO',
-  payload
+  payload : a
 })

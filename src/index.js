@@ -26,8 +26,7 @@ root.render(
   
   <Product/>
 
-  <UserRegistrationForm/>
-
+  
 </Provider>
 
    
