@@ -1,11 +1,11 @@
 import React from 'react'
 import {Formik,Form,Field} from 'formik'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+
 
 export default function UserRegistrationForm() {
   
- const navi =  useNavigate();
+ 
   return (
     <Formik
     
@@ -26,24 +26,26 @@ export default function UserRegistrationForm() {
 
     onSubmit={ async(values) => {
 
-     let d =  
-     await axios.post("https://real-pear-fly-kilt.cyclic.app/accounts/register",
-     values);
 
-      console.log(d.data);
+      console.log(values);
+    //  let d =  
+    //  await axios.post("https://real-pear-fly-kilt.cyclic.app/accounts/register",
+    //  values);
 
-      if(d.status == 200)
-      {
+    //   console.log(d.data);
 
-      navi("/login");
+    //   if(d.status == 200)
+    //   {
+
+    //   navi("/login");
     
-      }
+    //   }
 
     }}
     >
 
     <Form>
-    <Field name="title"/>
+    <Field name="title" />
     <Field name="firstName"/>
     <Field name="lastName"/>
     <Field name="email"/>

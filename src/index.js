@@ -15,6 +15,8 @@ import LanguageContext from './Context/LanguageContext';
 import EmployeeFullForm from './EmployeeFullForm';
 import store from './store/store';
 import Counter from './Counter';
+import UserRegistrationForm from './components/UserRegistrationForm';
+import Product from './Product';
 // import  './axiosbase/global'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,8 +24,9 @@ root.render(
 <Provider store={store}>
 
   
+  <Product/>
 
-  <Test/>
+  <UserRegistrationForm/>
 
 </Provider>
 
