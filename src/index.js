@@ -17,6 +17,7 @@ import store from './store/store';
 import Counter from './Counter';
 import UserRegistrationForm from './components/UserRegistrationForm';
 import Product from './Product';
+import UserList from './UserList';
 // import  './axiosbase/global'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,7 +25,7 @@ root.render(
 <Provider store={store}>
 
   
-  <Product/>
+  <UserList/>
 
   
 </Provider>
