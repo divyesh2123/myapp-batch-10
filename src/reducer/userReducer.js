@@ -25,7 +25,8 @@ export default (state = initialState, { type, payload }) => {
         const { error } = payload;
         return {
           ...state,
-          error
+          error,
+          loading: false
         } 
 
 
