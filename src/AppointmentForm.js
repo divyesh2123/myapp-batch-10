@@ -25,6 +25,12 @@ export default function AppointmentForm(props) {
         onSubmit :   (values)=> {
 
             console.log(values);
+
+            let t =[...props.data];
+
+            t.push({...values, id : t.length +1});
+
+            props.setData(t);
             props.onClose();
 
         }
