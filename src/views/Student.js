@@ -41,7 +41,7 @@ export default function Student() {
     <>
 
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open form dialog
+       Add Student
       </Button>
         <StudentForm  handleClose={handleClose}
           open={open}  data={data}

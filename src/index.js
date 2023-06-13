@@ -21,6 +21,10 @@ import UserList from './UserList';
 import EmployeeMy from './EmployeeMy';
 import Layout from './Layout';
 import UserLoginForm from './components/UserLoginForm';
+import MyEmp from './MyEmp';
+import Button from './views/Button';
+import Student from './views/Student';
+import Appointment from './Appointment';
 // import  './axiosbase/global'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,7 +34,9 @@ root.render(
   
   {/* <UserList/> */}
 
-  <UserList/>
+
+
+  <Appointment/>
 
   
 </Provider>
