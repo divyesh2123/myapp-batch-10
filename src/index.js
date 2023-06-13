@@ -25,6 +25,7 @@ import MyEmp from './MyEmp';
 import Button from './views/Button';
 import Student from './views/Student';
 import Appointment from './Appointment';
+import CounterSaga from './views/CounterSaga';
 // import  './axiosbase/global'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -36,7 +37,7 @@ root.render(
 
 
 
-  <Appointment/>
+  <CounterSaga/>
 
   
 </Provider>
