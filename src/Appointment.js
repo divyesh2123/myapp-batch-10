@@ -9,6 +9,11 @@ export default function Appointment() {
     const handleClickOpen = () => {
       setOpen(true);
     };
+
+    const handleClickClose = () => {
+        setOpen(false);
+      };
+    
   
   return (
     <div>
@@ -16,7 +21,7 @@ export default function Appointment() {
 <Button variant="outlined" onClick={handleClickOpen}>
        Add Appointment
       </Button>
-            <AppointmentForm open={open} onClose={handleClickOpen} />
+            <AppointmentForm open={open} onClose={handleClickClose} />
         
             <AppointmentDisplay/>
          
