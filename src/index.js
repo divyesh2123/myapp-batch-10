@@ -27,6 +27,7 @@ import Student from './views/Student';
 import Appointment from './Appointment';
 import CounterSaga from './views/CounterSaga';
 import PersonData from './views/PersonData';
+import PersonData2 from './views/PersonData2';
 // import  './axiosbase/global'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -38,7 +39,7 @@ root.render(
 
 
 
-  <PersonData/>
+  <PersonData2/>
 
   
 </Provider>
