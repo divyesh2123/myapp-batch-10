@@ -60,7 +60,7 @@ export default function AppointmentForm(props) {
             else
             {
 
-            tp.push({...values, id : t.length +1});
+            tp.push({...values, id : tp.length +1});
             }
 
             props.setId(-1);
