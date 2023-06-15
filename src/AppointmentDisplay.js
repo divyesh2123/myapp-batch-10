@@ -49,6 +49,21 @@ export default function AppointmentDisplay(props) {
                   }}>Delete</button>)
               }
 
+        },
+        {
+            field : "edit",
+            headerName : "edit",
+            renderCell: (params) => {
+
+                console.log(params);
+                 // you will find row info in params
+                return (<button onClick={()=>{
+        
+                    props.edit(params.row.id);
+        
+                  }}>edit</button>)
+              }
+
         }
         
     ]

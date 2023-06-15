@@ -11,26 +11,61 @@ import { useFormik } from 'formik';
 export default function AppointmentForm(props) {
 
 
+
+    let t = [...props.data].find((value)=> {
+
+      return value.id == props.id;
+    })
+
+  
+
    const formik = useFormik({
         initialValues : {
 
-            firstName : "",
-            lastName : "",
-            city : "",
-            state: "",
-            address1: "",
-            address2: ""
+            firstName :  props.id >0? t.firstName : "",
+            lastName : props.id >0? t.lastName : "",
+            city : props.id >0?t.city : "",
+            state: props.id >0? t.state: "",
+            address1: props.id >0? t.address1 : "",
+            address2: props.id >0? t.address2 : ""
         },
+        enableReinitialize: true,
 
         onSubmit :   (values)=> {
 
+           
+
             console.log(values);
 
-            let t =[...props.data];
+            let tp =[...props.data];
 
-            t.push({...values, id : t.length +1});
+            if(props.id >0)
+            {
 
-            props.setData(t);
+              tp = tp.map((a)=> {
+
+                if(a.id == props.id)
+              {
+                return {...values,id : props.id};
+              }
+              else
+              {
+                return a;
+              }
+
+              })
+              
+
+            }
+            else
+            {
+
+            tp.push({...values, id : t.length +1});
+            }
+
+            props.setId(-1);
+            props.setData(tp);
+            formik.resetForm();
             props.onClose();
 
         }

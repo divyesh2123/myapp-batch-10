@@ -8,6 +8,8 @@ export default function Appointment() {
 
     const [data,setData] = useState([]);
 
+    const [id,setId]= useState(-1);
+
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -28,6 +30,16 @@ export default function Appointment() {
 
       }
     
+
+      const editItem = (id)=> {
+
+        
+
+       setOpen(true);
+       setId(id);
+
+      }
+    
   
   return (
     <div>
@@ -39,10 +51,15 @@ export default function Appointment() {
             
             data={data}
             setData={setData}
+            id={id}
 
+            setId={setId}
             />
         
-            <AppointmentDisplay data={data} remove={removeItem}/>
+            <AppointmentDisplay data={data} remove={removeItem}
+            
+            edit= {editItem}
+            />
          
 
     </div>
