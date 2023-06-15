@@ -35,6 +35,21 @@ export default function AppointmentDisplay(props) {
             headerName: "address another",
             width: 90
         },
+        {
+            field : "delete",
+            headerName : "delete",
+            renderCell: (params) => {
+
+                console.log(params);
+                 // you will find row info in params
+                return (<button onClick={()=>{
+        
+                    props.remove(params.row.id);
+        
+                  }}>Delete</button>)
+              }
+
+        }
         
     ]
 

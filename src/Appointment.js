@@ -15,6 +15,18 @@ export default function Appointment() {
     const handleClickClose = () => {
         setOpen(false);
       };
+
+      const removeItem = (id)=> {
+
+        let d = [...data].filter((value)=> {
+
+          return value.id != id;
+
+        });
+
+        setData(d);
+
+      }
     
   
   return (
@@ -30,7 +42,7 @@ export default function Appointment() {
 
             />
         
-            <AppointmentDisplay data={data}/>
+            <AppointmentDisplay data={data} remove={removeItem}/>
          
 
     </div>
