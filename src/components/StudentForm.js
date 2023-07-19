@@ -16,7 +16,9 @@ export default function StudentForm(props) {
 
       city : "",
       state : ""
-    }
+    },
+
+    gender: ""
   })
 
   useEffect(()=> {
@@ -162,6 +164,12 @@ export default function StudentForm(props) {
         value={form?.address?.state}
         onChange={changeHandelr}
       />
+
+
+    Male:  <input type='radio' name='gender' value="male" onChange={changeHandelr}/>
+    FeMale:  <input type='radio' name='gender' value="female" onChange={changeHandelr}/>
+
+
     </DialogContent>
     <DialogActions>
       <Button onClick={handleSave}>Save</Button>

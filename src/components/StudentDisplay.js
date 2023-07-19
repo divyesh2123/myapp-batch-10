@@ -14,6 +14,7 @@ export default function StudentDisplay(props) {
     valueFormatter: (params) => params.value.toLowerCase()
   
   },
+    { field: 'gender', headerName: 'Gender', width: 330 },
     { field: 'lastName', headerName: 'Last Name', width: 330 },
     { field: 'fullname', headerName: 'Last Name', width: 330,
 

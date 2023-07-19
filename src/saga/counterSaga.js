@@ -10,7 +10,7 @@ function Increment()
 }
 
 export function* incrementAsync() {
-    yield delay(2000)
+    yield delay(5000)
     yield put(Increment())
   }
   

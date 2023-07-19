@@ -32,17 +32,17 @@ import PersonData2 from './views/PersonData2';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-<Provider store={store}>
+
 
   
   {/* <UserList/> */}
 
 
 
-  <Appointment/>
+  <Student/>
 
   
-</Provider>
+
 
    
 {/* <Emp1/> */}
